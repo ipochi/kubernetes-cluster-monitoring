@@ -1,0 +1,20 @@
+prometheus:
+  prometheusSpec:
+    replicas: 1
+    storageSpec:
+      volumeClaimTemplate:
+        metadata:
+          name: data
+        spec:
+          storageClassName: openebs-jiva-default
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+    thanos:
+        baseImage: improbable/thanos
+        version: v0.2.1
+        peers: thanos-peers.monitoring.svc:10900
+        objectStorageConfig:
+          key: thanos.yaml
+          name: thanos-objstore-config

@@ -1,0 +1,8 @@
+type: s3
+config:
+  bucket: <bucket-name>
+  endpoint: s3.<region>.amazonaws.com
+  access_key: "<access-key>"
+  secret_key: "<secret-key>"
+  encryptsse: true
+  signature_version2: false
